@@ -1,0 +1,524 @@
+:root{
+    --blue-highlight: #0055dc;
+}
+
+.jorms-form{
+    color: #333;
+}
+
+.jorms-form-form-title{
+    font-size: 1.5em;
+    font-weight: bolder;
+    width: 100%;
+}
+
+.jorms-loading{
+    font-size: 42px;
+    display: none !important;
+    color: purple;
+}
+.jorms-form .jorms-loading{
+    color: var(--blue-highlight);
+}
+
+.loading .jorms-loading{
+    display: inline-block !important;
+}
+.jorms-form.loading input[type=submit]{
+    display: none;
+}
+
+.jorms-form *{
+    outline: none !important;
+}
+.jorms-form *:focus{
+    border-color: var(--blue-highlight) !important;
+    -webkit-box-shadow: 0 0 1px 1px var(--blue-highlight);
+    box-shadow: 0 0 1px 1px var(--blue-highlight);
+}
+.jorms-form .select2-container{
+    display: block;
+    width: 100% !important;
+}
+.jorms-form input[type=date],.jorms-form input[type=time],.jorms-form input[type=email],.jorms-form input[type=number],.jorms-form input[type=password],.jorms-form input[type=search],.jorms-form input[type=tel],.jorms-form input[type=text],.jorms-form input[type=url],.jorms-form select,.jorms-form textarea{
+    border-radius: 5px;
+    background-color: #f4f4f4 !important;
+    padding: 0.5rem 1rem;
+}
+.jorms-form input[type=submit], .jorms-form [type=button]{
+    text-align: center;
+    color: #fff;
+    background-color: var(--blue-highlight);
+    font-weight: 600;
+    border: 1px solid var(--blue-highlight);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.jorms-form input[type=submit]:hover, .jorms-form [type=button]:hover{
+    -webkit-transform: scale(.98) !important;
+    -ms-transform: scale(.98) !important;
+    transform: scale(.98) !important;
+}
+
+.jorms-form input[type=submit]:active, .jorms-form [type=button]:active{
+    -webkit-transform: scale(.93) !important;
+    -ms-transform: scale(.93) !important;
+    transform: scale(.93) !important;
+}
+
+.jorms-form-hidden{
+    display: none !important;
+}
+
+.jorms-form, .jorms-form-repeater-group-fields.grouped{
+    display: flex;
+    flex-wrap: wrap;
+    white-space: nowrap;
+    gap: 12px;
+    justify-content: space-between;
+    position: relative;
+    --overflow: hidden;
+    padding: 7px 14px;
+}
+
+.jorms-form{
+    padding: 14px;
+}
+
+.jorms-form.loading:after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    opacity: 0.6;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.jorms-form.loading *{
+    pointer-events: none;
+}
+
+.jorms-form-message{
+    width: 100%;
+    font-size: 21px;
+    text-align: center;
+    padding: 18px;
+    font-weight: 500;
+    display: none;
+}
+.jorms-form.loading .jorms-form-message{
+    display: block;
+    z-index: 11;
+    white-space: pre-wrap;
+}
+.jorms-form .jorms-form-field, .jorms-form [type="submit"], .jorms-form-field-repeater{
+    width: 100%;
+    white-space: normal;
+    display: inline-block;
+}
+
+.jorms-form-field label, .jorms-form-label, .jorms-form-field-repeater label{
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.jorms-form-field > *, .jorms-form-field-repeater > *{
+    width: 100%;
+}
+
+.jorms-form-field.jorms-form-size-50, .jorms-form-field-repeater.jorms-form-size-50{
+    width: calc(50% - 9px);
+}
+
+.jorms-form-field.jorms-form-size-33, .jorms-form-field-repeater.jorms-form-size-33{
+    width: calc(33% - 9px);
+
+}
+
+.jorms-form-field.jorms-form-size-75, .jorms-form-field-repeater.jorms-form-size-75{
+    width: calc(75% - 9px);
+}
+
+.jorms-form-field.jorms-form-size-25, .jorms-form-field-repeater.jorms-form-size-25{
+    width: calc(25% - 9px);
+}
+
+
+.inline.jorms-form-field *, .inline.jorms-form-field-repeater *{
+    display: inline-block;
+}
+
+.jorms-form .error{
+    color: red;
+}
+
+.jorms-form fieldset{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+.jorms-form fieldset legend{
+    font-weight: 600;
+}
+.jorms-form .error-message{
+    display: none;
+    color: red;
+}
+
+.jorms-form .error .error-message{
+    display: block;
+}
+.jorms-form *:disabled{
+    opacity: 0.1;
+    pointer-events: none;
+    cursor: none;
+}
+
+.jorms-form-upload-image-container, .jorms-form-video-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    position: relative;
+    width: fit-content;
+}
+
+.ui-sortable .dz-preview{
+    cursor: -webkit-grab;
+    cursor: grab;}
+
+.ui-sortable:active .dz-preview{
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+.jorms-form-upload-wrapper .dropzone{
+    border: 0;
+    padding-bottom: 14px;
+}
+
+.jorms-form .dropzone .dz-preview.dz-image-preview{
+    background: transparent;
+}
+
+.jorms-form-upload-wrapper{
+    width: fit-content;
+}
+
+.jorms-form-upload-wrapper .jorms-form-upload-image-container .dz-message{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    min-width: 154px;
+    width: 50%;
+    z-index: 2;
+}
+.jorms-form-upload-wrapper .jorms-form-upload-image-container .dz-message button{
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.jorms-form-upload-image-container .empty{
+    border-style: dashed;
+    height: 141px;
+    width: 120px;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.jorms-full .jorms-form-video-add-box, .jorms-full .jorms-form-repeater-add{
+    display: none;
+}
+
+
+.jorms-form-video-add-box{
+    width: 141px;
+}
+.jorms-form-video-add-box input{
+    display: block;
+    margin-bottom: 3px;
+}
+
+.jorms-form-video-add{
+    height: 94px;
+    display: block;
+    border-style: dotted;
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    color: initial;
+    border-radius: 10px;
+}
+.jorms-form-video-add:hover{
+    color: initial;
+}
+
+.jorms-form-video-container .jorms-form-embedded-video{
+    width: 141px;
+    height: 141px;
+}
+.jorms-form-embedded-video iframe{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.jorms-form-video-remove{
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    border: none;
+}
+
+.jorms-form-upload-image-container .error-message{
+    display: none;
+}
+.error .error-message{
+    display: block;
+}
+.jorms-form-upload-image-container .empty:after, .jorms-form-video-add:after{
+    content: "\002B";
+    font-size: 32px;
+    font-weight: 700;
+    position: absolute;
+    inset:0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+}
+
+@media (max-width: 390px) {
+
+    .jorms-form .dropzone .dz-preview .dz-image{
+        height: 85px;
+        width: 85px;
+    }
+    .jorms-form-upload-image-container .empty{
+        height: 100px;
+        width: 85px;
+    }
+
+    .jorms-form-video-container .jorms-form-embedded-video{
+        width: 85px;
+        height: 85px;
+    }
+
+    .jorms-form-video-add-box{
+        width: 85px;
+    }
+    .jorms-form-video-add {
+        height: 57px;
+    }
+
+}
+
+.jorms-form-upload-button{
+    display: none;
+    margin-left: 14px;
+    margin-top: 7px;
+}
+
+
+.jorms-form-upload-image-container:not([data-amount='1']).dz-started ~ .jorms-form-upload-button:not(:disabled){
+    display: block;
+}
+
+.jorms-form .hidden{
+    display: none;
+}
+
+.jorms-form-instructions{
+    margin-left: 14px;
+    font-size: 12px;
+}
+.jorms-counter{
+    width: fit-content;
+    float: right;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+.jorms-counter.inline{
+    float: none;
+    margin-left: 14px;
+}
+
+.jorms-form-checkradio-wrapper > fieldset{
+    white-space: nowrap;
+    color: inherit !important;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.jorms-form-checkradio-wrapper > fieldset > legend{
+    display: none;
+}
+.jorms-form-check-option{
+    flex: 0 0 50%;
+}
+.jorms-form-radio-option{
+    flex: 0 0 33%;
+}
+
+.dropzone .dz-preview {
+    margin: 0 !important;
+}
+
+.jorms-form input[type="checkbox"], .jorms-form input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    vertical-align: text-top;
+}
+
+.jorms-form .jorms-form-checkbox legend{
+    display: none;
+}
+
+
+.jorms-form-repeater-inner{
+    border-radius: 4px;
+    padding: 14px;
+    border: 1px solid;
+
+}
+
+.jorms-form-repeater-group{
+    margin-bottom: 14px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 23px;
+    gap: 7px;
+}
+.jorms-form-repeater-group.grouped{
+    align-items: center;
+}
+.grouped .jorms-form-repeater-group-fields{
+    padding: 14px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: #ddd;
+}
+.jorms-form-repeater-remove{
+    margin-top: 50%;
+}
+.grouped .jorms-form-repeater-remove{
+    margin-top: unset;
+}
+
+
+.jorms-form-repeater-remove-icon{
+    position: relative;
+    border: solid 2px #ccc;
+    color: #ccc;
+    width: 23px;
+    height: 23px;
+    border-radius: 20px;
+    display: block;
+}
+
+
+.jorms-form .jorms-form-repeater-add{
+    padding: 3px 14px;
+}
+.jorms-form-repeater-remove-icon:hover{
+    border-color: var(--blue-highlight);
+    color: var(--blue-highlight);
+}
+.jorms-form-repeater-remove-icon:after{
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    font-size: 21px;
+    transform: translate(-50%,-50%);
+    font-weight: 600;
+    content: "\00d7";
+    font-style: normal;
+}
+
+.jorms-form .invalid{
+    color: red;
+    outline: red;
+    border-color: red;
+}
+
+.jorms-form .jorms-form-field-error{
+    display: none;
+}
+
+.jorms-form .invalid .jorms-form-field-error{
+    display: block;
+}
+
+
+.jorms-form .select2-selection {
+    height: 42px !important;
+}
+.jorms-form .select2-selection__rendered{
+    padding-top: 5px !important;
+}
+.jorms-form .select2-selection__arrow{
+    top: 8px !important;
+}
+
+
+.jorms-form .jorms-form-place img{
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 3px;
+    aspect-ratio: 16/9;
+    display: block;
+}
+
+.jorms-form .jorms-form-place .jorms-form-place-wrapper{
+    padding: 8px;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #333;
+    margin-top: -3px;
+}
+.jorms-form .jorms-form-place.noplace .jorms-form-place-wrapper{
+    display: none;
+
+}
+.jorms-form .jorms-form-place .jorms-form-place-name{
+    text-decoration: underline;
+}
+
+
+.pac-container{
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #ccc;
+}
+
+.jorms-form-video-add-box-input {
+    display: flex;
+    justify-content: space-around;
+    gap: 3px;
+}
+
+.jorms-form-video-container{
+    padding: 20px 20px;
+}
+
+.jorms-form-video-add-box-copyurl {
+    border: solid 1px #333;
+    border-radius: 5px;
+    height: 42px;
+    background-color: #dddddd;
+}
+
+.select2-dropdown--below {
+box-shadow: 0 8px 26px -6px rgba(0,0,0,0.5);
+}

@@ -1,0 +1,11 @@
+#jorms_forms_admin{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.jorms_form_admin-form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
