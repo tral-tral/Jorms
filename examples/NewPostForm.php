@@ -27,15 +27,6 @@ class Fukun_EventForm extends \Jorms\Jorms_form
                 'amount' => 1,
             ],
 
-            /*
-            [
-                'type' => 'select2',
-                'label' => 'Location',
-                'name' => 'location',
-                'options' => jorms_get_posts_form(['post_type' => 'locations'])
-            ],
-            */
-
             [
                 'type' => 'text',
                 'name' => 'title',
@@ -87,35 +78,6 @@ class Fukun_EventForm extends \Jorms\Jorms_form
             ]
         ];
     }
-
-/*
-    function get_actions()
-    {
-        return [
-            'create_update_post' => [
-                'data' => [
-                    'ID' => 0,
-                    'post_title' => '%title%',
-                    'post_type' => 'events',
-                    'post_status' => 'publish',
-                    'post_author' => get_current_user_id(),
-                    'meta_input' => [
-                        'date' => '%date%',
-                        'time' => '%time%',
-                        'location' => '%location%',
-                        'highlights' => '%highlights%',
-                        'description' => '%description%',
-                        'poster' => '%poster%',
-                        //    'gallery' => '%gallery%',
-                        'type' => '%type%',
-                    ]
-                ]
-            ],
-        ];
-    }
-*/
-
-
 
     function completed(){
 
@@ -172,9 +134,6 @@ class Fukun_EventForm extends \Jorms\Jorms_form
 
 
         \FukuokaNight\set_attachmentIDs( $data_parsed['meta_input']['poster'] , $new_event );
-
-
-        //  add_post_meta( $data_parsed['meta_input']['venue'] , 'events' , $new_event );
 
     }
 
