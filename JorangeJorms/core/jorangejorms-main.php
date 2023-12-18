@@ -13,8 +13,6 @@ class Jorms{
 
     private $fields = [];
 
-    private $script_data = [];
-
     public function __construct(){
         require_once( __DIR__ . '/form/jorangejorms-class.php');
         require_once( __DIR__ . '/form/jorms-field-handler.php');
