@@ -5,12 +5,6 @@ function Jorms(){
     return \Jorms\Jorms::instance();
 }
 
-function jorms_send_mail( $to, $subject, $body ){
-   // wp_send_json_success('Mail thing ' . $to . $subject . $body );
-    $headers = array('Content-Type: text/plain; charset=UTF-8','From: Fukuoka Night <info@fukuokanight.com>');
-    wp_mail( $to , $subject , $body, $headers);
-}
-
 //Returns as 'label' => post_title, 'value' => post_id
 function jorms_posts_for_form( $posts ){
     $parsed_posts = [];
