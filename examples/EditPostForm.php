@@ -9,7 +9,6 @@ class Fukun_UpdateVenueForm extends \Jorms\Jorms_form{
         $this->handle = 'update-venue';
         $this->response = 'Venue updated';
         $this->submit_text = 'Update venue';
-        $this->actions = [ 'create_location' => [ 'data' => '%location%' ] ];
         $this->end_action   = 'reload';
     }
 
