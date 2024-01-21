@@ -25,7 +25,9 @@ class Jorms_form{
     protected $end_action = false;
     protected $other_data = '';
     protected $response = '';
+
     protected $submit_text = 'submit';
+    protected $submit_on_enter = false;
 
     protected $invalid_responses = [];
     protected $invalid_action_responses = [];
@@ -75,6 +77,10 @@ class Jorms_form{
 
     function get_actions(){
         return $this->actions;
+    }
+
+    function submit_on_enter(){
+        return $this->submit_on_enter;
     }
 
     function filter_setup_fields(){
@@ -258,9 +264,14 @@ class Jorms_form{
 
         $title = $this->get_title();
 
+        $submit_on_enter = $this->submit_on_enter();
+
         $other_data = $this->get_other_data();
 
-        echo "<form novalidate='novalidate' class='jorms-form' data-jorms-form-action='".$this->end_action."' data-jorms='".$other_data."' data-jorms-form-handle='". $this->handle."' data-jorms-form-nonce-suffix='".$nonce_suffix."' data-jorms-form-nonce='".$nonce."' method='get' action=''><button type='submit' disabled style='display: none' aria-hidden='true'></button>";
+        echo "<form novalidate='novalidate' class='jorms-form' data-jorms-form-action='".$this->end_action."' data-jorms='".$other_data."' data-jorms-form-handle='". $this->handle."' data-jorms-form-nonce-suffix='".$nonce_suffix."' data-jorms-form-nonce='".$nonce."' method='get' action=''>";
+
+        if( !$submit_on_enter )
+            echo "<button type='submit' disabled style='display: none' aria-hidden='true'></button>";
 
         if( !empty( $title ) )
             echo '<div class="jorms-form-form-title">' . $title . '</div>';
