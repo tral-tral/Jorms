@@ -33,7 +33,7 @@ if( $value && !is_array( $value ) )
 
 </div>
 
-<span class="jorms-form-instructions">Enter a YouTube URL.</span>
+<span class="jorms-form-instructions"><?php _e('Enter a YouTube URL.','jorms') ?></span>
 <span class="jorms-counter inline"><?php echo '<span class="jorms-current-count">' . ($value ? count($value) : 0) . '</span>/' . $amount; ?></span>
 <div class="error-message"></div>
 
