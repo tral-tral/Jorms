@@ -7,6 +7,7 @@
  * Author: Jorange Jorm
  * Version: 0.01
  * Author URI: https://orangerabbitcompany.com
+ * Text Domain: jorms
  *
  */
 namespace Jorms;
@@ -25,6 +26,4 @@ require_once 'helpers/validation-functions.php';
 require_once 'helpers/action-functions.php';
 
 require_once 'core/form/render/add_fields.php';
-
 load_plugin_textdomain('jorms', false, dirname(plugin_basename(__FILE__)) . '/languages/');
-
