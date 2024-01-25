@@ -20,9 +20,14 @@ class Jorms{
         require_once( __DIR__ . '/form/render/field_class.php');
         add_shortcode( 'jorms_form', [$this, 'shortcode_form'] );
 
+
+        define('JORMS_LOCALE', get_locale());
+
+       // echo JORMS_LOCALE;
+
         style_reg('jorms');
         script_reg('jorms', ['ajaxurl' => admin_url('admin-ajax.php'),], [ 'jquery', 'jquery-ui-sortable' ] );
-
+        script_reg('localization/jorms_' . JORMS_LOCALE);
     }
 
     function form( $handle, $setup ){
@@ -109,6 +114,11 @@ class Jorms{
         return ['valid'=> false, 'response' => 'Form not found' ];
     }
 
+    function enqueue_styles_and_scripts(){
+        enqueue_style('jorms');
+        enqueue_script('jorms');
+        enqueue_script('localization/jorms_' . JORMS_LOCALE);
+    }
 
     function get_validation_rule( $rule ){
         return $this->validation_rules[ $rule ] ?? [ 'callback'=> false, 'response' => 'Validation rule ({$rule}) not found' ];
