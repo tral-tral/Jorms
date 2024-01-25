@@ -97,6 +97,8 @@ class Jorms_form{
     function enqueue_styles_and_scripts(){
 
 
+        Jorms()->enqueue_styles_and_scripts();
+
         foreach( $this->fields ?? [] as $field){
             $type = $field['type'] ?? false;
             $field_object = Jorms()->get_field( $type );
@@ -109,12 +111,6 @@ class Jorms_form{
             }
 
         }
-
-
-
-        enqueue_style('jorms');
-        enqueue_script('jorms');
-
     }
 
 
