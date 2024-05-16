@@ -108,18 +108,33 @@ function jorms_handle_dropped_media() {
 
 
 
-    $allowed_mime = ['image/jpeg','image/png','image/jpg'];
-
+    $allowed_mime = ['image/jpeg', 'image/png', 'image/jpg'];
+    $max_file_size = 2 * 1024 * 1024; // 2 MB
     $newupload = 0;
 
+    if (!empty($_FILES)) {
 
-    if ( !empty($_FILES) ) {
-
-        do_action('jorms_before_upload', $_FILES ); //Can die in this action to cancel uploads and display reason.;
+        do_action('jorms_before_upload', $_FILES);
 
         $files = $_FILES;
-        foreach($files as $file) {
-            $newfile = array (
+        foreach ($files as $file) {
+            if ($file['error'] !== UPLOAD_ERR_OK) {
+                status_header(403);
+                die('File upload error: ' . $file['error']);
+            }
+
+            if ($file['size'] > $max_file_size) {
+                status_header(403);
+                die('File size exceeds the maximum limit.');
+            }
+
+            $file_type = wp_check_filetype_and_ext($file['tmp_name'], $file['name']);
+            if (!in_array($file_type['type'], $allowed_mime)) {
+                status_header(403);
+                die('That is a forbidden file type.');
+            }
+
+            $newfile = array(
                 'name' => $file['name'],
                 'type' => $file['type'],
                 'tmp_name' => $file['tmp_name'],
@@ -127,22 +142,16 @@ function jorms_handle_dropped_media() {
                 'size' => $file['size']
             );
 
-            if( !in_array( $file['type'], $allowed_mime ) ) {
-                status_header(403);
-                die('That is a forbidden file type.');
-            }
-
-            $_FILES = array('upload'=>$newfile);
-            foreach($_FILES as $file => $array) {
-
-                $newupload = media_handle_upload( $file, 0 );
-
-                if( !is_wp_error( $newupload ) ){
-                    update_post_meta( $newupload, '_jorms_upload', true );
+            $_FILES = array('upload' => $newfile);
+            foreach ($_FILES as $file => $array) {
+                $newupload = media_handle_upload($file, 0);
+                if (!is_wp_error($newupload)) {
+                    update_post_meta($newupload, '_jorms_upload', true);
                 }
             }
         }
     }
+
 
     status_header(200);
 
